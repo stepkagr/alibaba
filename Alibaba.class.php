@@ -35,7 +35,7 @@ class Alibaba {
 
 	// The main methods to use
 
-	public static function ensureAuthentication() {
+	public static function forceAuthentication() {
 		if (!self::authenticated()) {
 			self::redirectToLogin();
 		}
@@ -64,11 +64,11 @@ class Alibaba {
 		if (mysql_numrows($result)) { 
 			// We're logged in, set the cookie
 			$logged_in = true;
-			setcookie("alibaba_" . self::$app_name . "_username", $username, time() + 60 * 60 * 24 * self::$cookie_expiration);
+			setcookie("alibaba_" . self::$app_name . "_username", $username, time() + 60 * 60 * 24 * self::$cookie_expiration, "/");
 		} else {
 			// Login failed
 			$logged_in = false;
-			setcookie("alibaba_" . self::$app_name . "_username", "", time() - 3600);
+			setcookie("alibaba_" . self::$app_name . "_username", "", time() - 3600, "/");
 		}
 
 		self::db_close($db);
@@ -90,7 +90,7 @@ class Alibaba {
 	}
 
 	public static function logout($url = '') {
-		setcookie("alibaba_" . self::$app_name . "_username", "", time() - 3600);
+		setcookie("alibaba_" . self::$app_name . "_username", "", time() - 3600, "/");
 
 		if ($url == '') { $url = self::$login_page_url; }
 
