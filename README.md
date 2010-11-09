@@ -1,6 +1,6 @@
 ## Alibaba
 
-A simple PHP user authentication system. There is no support for roles/rights.
+A simple PHP user authentication library. There is no support for roles/rights.
 
 ### Usage
 
@@ -14,7 +14,7 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 
 	include_once("Alibaba.class.php");
 
-	Alibaba::ensureAuthentication();
+	Alibaba::forceAuthentication();
 
 	// The rest of your page
 
