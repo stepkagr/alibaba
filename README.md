@@ -12,8 +12,9 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 
 	<?php
 
-	include_once("Alibaba.class.php");
+	include_once "Alibaba.class.php";
 
+	Alibaba::initAlibaba($alibabaParams);
 	Alibaba::forceAuthentication();
 
 	// The rest of your page
@@ -24,7 +25,9 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 
 	<?php
 
-	include_once("Alibaba.class.php");
+	include_once "Alibaba.class.php";
+
+	Alibaba::initAlibaba($alibabaParams);
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
@@ -41,8 +44,9 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 
 	<?php
 	
-	include_once("Alibaba.class.php");
+	include_once "Alibaba.class.php";
 
+	Alibaba::initAlibaba($alibabaParams);
 	Alibaba::logout();
 
 	?>

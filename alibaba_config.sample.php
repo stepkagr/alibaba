@@ -3,19 +3,18 @@
 //
 // Included by Alibaba.class.php
 
-$APP_NAME = "yourapp";
+$alibabaParams = array(
+	'app_name'				=> 'yourapp',
+	'database_name'			=> 'mydatabase',
+	'database_host'			=> 'localhost',
+	'database_username'		=> '',
+	'database_password'		=> '',
+	'user_table_name'		=> 'users',
+	'username_field'		=> 'username',
+	'password_field'		=> 'password',
+	'cookie_expiration'		=> '30',				// in days
+	'hash_function'			=> 'md5',				// or 'sha1' or 'md5sha1' or 'sha1md5'
+	'login_page_url'		=> 'http://yourdomain.com/app/login.php',
+);
 
-$DATABASE_NAME = "mydatabase";
-$DATABASE_HOST = "localhost";
-$DATABASE_USERNAME = "";
-$DATABASE_PASSWORD = "";
-$USER_TABLE_NAME = "users";
-$USERNAME_FIELD = "username";
-$PASSWORD_FIELD = "password";
-
-$COOKIE_EXPIRATION = "30";			// in days
-
-$HASH_FUNCTION = "md5";				// or "sha1" or "md5sha1" or "sha1md5"
-
-$LOGIN_PAGE_URL = "http://yourdomain.com/app/login.php";
 ?>
