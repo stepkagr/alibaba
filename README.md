@@ -50,7 +50,3 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 	Alibaba::logout();
 
 	?>
-
-### License
-
-Public domain.
