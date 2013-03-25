@@ -14,7 +14,7 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 
 	include_once "Alibaba.class.php";
 
-	Alibaba::initAlibaba($alibabaParams);
+	Alibaba::AlibabaInit($alibabaParams);
 	Alibaba::forceAuthentication();
 
 	// The rest of your page
