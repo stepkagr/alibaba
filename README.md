@@ -10,6 +10,7 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 
 #### General
 
+```php
 	<?php
 
 	include_once "Alibaba.class.php";
@@ -20,9 +21,11 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 	// The rest of your page
 
 	?>
+```
 
 #### Login page
 
+```php
 	<?php
 
 	include_once "Alibaba.class.php";
@@ -39,9 +42,11 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 	}
 
 	?>
+```
 
 #### Logout page
 
+```php
 	<?php
 	
 	include_once "Alibaba.class.php";
@@ -50,3 +55,4 @@ Copy `alibaba_config.sample.php` to `alibaba_config.php` and edit it to match yo
 	Alibaba::logout();
 
 	?>
+```

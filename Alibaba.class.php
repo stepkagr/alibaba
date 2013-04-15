@@ -1,4 +1,4 @@
-<?
+<?php
 // Alibaba
 // PHP authentication library
 //
@@ -49,7 +49,7 @@ class Alibaba {
 		}
 	}
 
-	public static function login($username, $password) {
+	public static function loginAction($username, $password) {
 		// Connect to the database
 		$db = self::db_connect();
 
@@ -62,31 +62,46 @@ class Alibaba {
 		$result = mysql_query($query) or die("Couldn't run: $query");
 
 		if (mysql_numrows($result)) { 
-			// We're logged in, set the cookie
+			// We're logged in
 			$logged_in = true;
-			setcookie("alibaba_" . self::$app_name . "_username", $username, time() + 60 * 60 * 24 * self::$cookie_expiration, "/");
 		} else {
 			// Login failed
 			$logged_in = false;
-			setcookie("alibaba_" . self::$app_name . "_username", "", time() - 3600, "/");
 		}
 
 		self::db_close($db);
 
 		return $logged_in;
+	}	
+	
+	public static function login($username, $password) {
+
+		$logged_in=self::loginAction($username, $password);
+		if ($logged_in) { 
+			//set the cookie
+			setcookie("alibaba_" . self::$app_name . "_username", $username, time() + 60 * 60 * 24 * self::$cookie_expiration, "/");
+		} else {
+			// unset
+			setcookie("alibaba_" . self::$app_name . "_username", "", time() - 3600, "/");
+		}
+		return $logged_in;
 	}
 
-	public static function redirectToLogin($message = '', $login = '') {
+	public static function pswCheck($password){
+		return self::loginAction(self::getUsername(), $password);
+	}
+	
+	public static function redirectToLogin($login = '') {
 		if ($login == '') { $login = self::$login_page_url; }
 
 		$locstr = "Location: $login";
-		if ($message) { $locstr .= "?message=$message"; }
-
 		header($locstr);
 	}
 
 	public static function getUsername() {
+		if (self::authenticated())
 		return $_COOKIE["alibaba_" . self::$app_name . "_username"];
+		return false;
 	}
 
 	public static function logout($url = '') {
