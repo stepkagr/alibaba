@@ -4,7 +4,7 @@
 // Included by Alibaba.class.php
 
 $alibabaParams = array(
-	'app_name'				=> 'yourapp',
+	'app_name'			=> 'yourapp',
 	'database_name'			=> 'mydatabase',
 	'database_host'			=> 'localhost',
 	'database_username'		=> '',
