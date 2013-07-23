@@ -125,7 +125,7 @@ class Alibaba {
 
 	private static function sessionCheck(){
 		if(session_id() == '' || !isset($_SESSION) || !isset($_SESSION['address'])) return false;
-		return ($_SESSION['address']==$_SERVER['REMOTE_ADDR'] &&$_SESSION['username']=$_COOKIE["alibaba_" . self::$app_name . "_username"] );
+		return ($_SESSION['address']==$_SERVER['REMOTE_ADDR'] &&$_SESSION['username']==$_COOKIE["alibaba_" . self::$app_name . "_username"] );
 	}
 
 	private static function hashpass($password) {
